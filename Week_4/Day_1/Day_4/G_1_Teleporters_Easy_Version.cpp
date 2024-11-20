@@ -1,37 +1,40 @@
 #include<bits/stdc++.h>
+#define ll long long
 using namespace std;
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     int t;
     cin>>t;
     while(t--)
     {
-        int n,c;
+        ll n,c;
         cin>>n>>c;
-        int ar[n+5];
-        for(int i=1;i<=n;i++)
-        {
-            cin>>ar[i];
-        }
-        for(int i=1;i<=n;i++)
-        {
-            ar[i]=ar[i]+i;
-        }
-        sort(ar+1,ar+n+1);
-        int cnt=0;
+        vector<ll>v(n);
+        ll sum=0;
         for(int i=0;i<n;i++)
         {
-            if(c>=ar[i])
+            cin>>v[i];
+        }
+        for(int i=0;i<n;i++)
+        {
+            v[i]=v[i]+i+1;
+        }
+        sort(v.begin(),v.end());
+        for(int i=0;i<n;i++)
+        {
+            sum+=v[i];
+            if(sum>c)
             {
-                c=c-ar[i];
-                cnt=i;
-            }
-            else 
-            {
+                cout<<i<<endl;
                 break;
             }
+            if(i==n-1)
+            {
+                cout<<n<<endl;
+            }
         }
-        cout<<cnt<<endl;
     }
     return 0;
 }
