@@ -42,7 +42,7 @@ int main()
         }
         else if(n%2==0 && m%2==1)
         {
-            cout<<"No";
+            cout<<"No"<<endl;
             continue;
         }
         else if(n%2==1 && m%2==1)
